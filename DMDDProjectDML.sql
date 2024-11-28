@@ -168,7 +168,7 @@ INSERT INTO ShipmentTransport (DistributorID, TransporterID, ShipmentID) VALUES
 (10, 10, 10);
 
 -- Insert DistributorManufacturerContract Data
-INSERT INTO DistributorManufacturerContract (DistributorID, ManufacturerID, DistributorManufacturerContractStartDate, DistributorManufacturerContractEndDate) VALUES
+INSERT INTO DistributorManufacturerContract (DistributorID, ManufacturerID, StartDate, EndDate) VALUES
 (1, 1, '2024-01-01', '2025-01-01'),
 (2, 2, '2024-02-01', '2025-02-01'),
 (3, 3, '2024-03-01', '2025-03-01'),
@@ -194,7 +194,7 @@ INSERT INTO Retailer (Name, PhoneNumber, Email, AddressID, DistributorID) VALUES
 ('Retailer J', '0123456789', 'retailerj@example.com', 10, 10);
 
 -- Insert TransporterContract Data
-INSERT INTO TransporterContract (TransporterID, RetailerID, TransporterContractStartDate, TransporterContractEndDate) VALUES
+INSERT INTO TransporterContract (TransporterID, RetailerID, StartDate, EndDate) VALUES
 (1, 1, '2024-01-01', '2025-01-01'),
 (2, 2, '2024-02-01', '2025-02-01'),
 (3, 3, '2024-03-01', '2025-03-01'),

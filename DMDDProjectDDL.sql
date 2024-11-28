@@ -1,11 +1,8 @@
-IF EXISTS (SELECT name FROM sys.databases WHERE name = N'SupplyChain')
-    DROP DATABASE SupplyChain
-GO
-
 CREATE DATABASE SupplyChain;
-Go
+
 USE SupplyChain;
-Go
+
+
 
 -- Address Table
 CREATE TABLE Address (
@@ -151,11 +148,10 @@ CREATE TABLE DistributorManufacturerContract (
     ContractID INT PRIMARY KEY IDENTITY,
     DistributorID INT NOT NULL,
     ManufacturerID INT NOT NULL,
-    DistributorManufacturerContractStartDate DATE NOT NULL,
-    DistributorManufacturerContractEndDate DATE,
+    StartDate DATE NOT NULL,
+    EndDate DATE,
     FOREIGN KEY (DistributorID) REFERENCES Distributor(DistributorID) ON DELETE NO ACTION,
-    FOREIGN KEY (ManufacturerID) REFERENCES Manufacturer(ManufacturerID) ON DELETE NO ACTION,
-    CONSTRAINT CK_DistributorManufacturerContractEndDate CHECK (DistributorManufacturerContractEndDate IS NULL OR DistributorManufacturerContractEndDate > DistributorManufacturerContractStartDate)
+    FOREIGN KEY (ManufacturerID) REFERENCES Manufacturer(ManufacturerID) ON DELETE NO ACTION
 );
 
 -- Retailer Table
@@ -175,11 +171,10 @@ CREATE TABLE TransporterContract (
     ContractID INT PRIMARY KEY IDENTITY,
     TransporterID INT NOT NULL,
     RetailerID INT NOT NULL,
-    TransporterContractStartDate DATE NOT NULL,
-    TransporterContractEndDate DATE,
+    StartDate DATE NOT NULL,
+    EndDate DATE,
     FOREIGN KEY (TransporterID) REFERENCES Transporter(TransporterID) ON DELETE NO ACTION,
-    FOREIGN KEY (RetailerID) REFERENCES Retailer(RetailerID) ON DELETE NO ACTION,
-    CONSTRAINT CK_TransporterContractEndDate CHECK (TransporterContractEndDate IS NULL or TransporterContractEndDate > TransporterContractStartDate)
+    FOREIGN KEY (RetailerID) REFERENCES Retailer(RetailerID) ON DELETE NO ACTION
 );
 
 -- UserTable
